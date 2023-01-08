@@ -1,0 +1,16 @@
+[Unit]
+
+Description=hddtemp
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+
+User=root
+Group=root
+Type=simple
+ExecStart=/usr/sbin/hddtemp --daemon --foreground /dev/sda /dev/sdb --listen=127.0.0.1
+
+[Install]
+
+WantedBy=multi-user.target
